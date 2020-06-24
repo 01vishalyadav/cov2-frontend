@@ -14,7 +14,7 @@ class App extends Component
   }
   getData(dist)
   {
-    let url = "https://node-py-1.herokuapp.com/api/districts/"+dist;
+    let url = "localhost:3333/api/districts/"+dist;
     fetch(url)
       .then(res=>{
         return res.json();
