@@ -15,10 +15,10 @@ class App extends Component
   }
   getData(dist)
   {
-    let url = "http://localhost:3333/api/districts/"+dist;
-    if(process.env.NODE_ENV==='production')
-      url="https://node-py-1.herokuapp.com/api/districts/"+dist;
-    console.log(process.env.NODE_ENV);
+    let url = "https://node-py-1.herokuapp.com/api/districts/"+dist
+    
+    if(process.env.NODE_ENV==='development')
+      url="http://localhost:3333/api/districts/"+dist;
     fetch(url)
       .then(res=>{
         return res.json();
