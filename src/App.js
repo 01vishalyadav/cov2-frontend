@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import District from './District/District';
+import process from 'process';
 class App extends Component
 {
   state = {
@@ -14,7 +15,10 @@ class App extends Component
   }
   getData(dist)
   {
-    let url = "localhost:3333/api/districts/"+dist;
+    let url = "http://localhost:3333/api/districts/"+dist;
+    if(process.env.NODE_ENV==='production')
+      url="https://node-py-1.herokuapp.com/api/districts/";
+
     fetch(url)
       .then(res=>{
         return res.json();
@@ -38,15 +42,24 @@ class App extends Component
       });
   }
 
+  btnClickedCount=0;
   buttonClickedHandler = (event) => {
+    let dist = document.getElementById('input').value;
+    if(dist==="")
+    {
+      this.setState({err:true,fetched:true,loading:false});
+      return;
+    }
+    ++this.btnClickedCount;
     this.setState({loading:true});
-    setTimeout(()=>{
-      
-      let dist = "Mau";
-      dist = document.getElementById('input').value;
+    if(this.btnClickedCount>1)
+    {
+      setTimeout(()=>{
+        this.getData(dist);
+      },600);
+    }
+    else
       this.getData(dist);
-    },1000)
-    
   }
   render()
   {

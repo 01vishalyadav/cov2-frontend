@@ -36,32 +36,27 @@ const district = (props) => {
     outputData = (
       <Container style={{textAlign:"center",marginTop:10}} >
         <TableContainer component={Paper}>
-      <Table aria-label="simple table" >
-        <TableHead>
-          <TableRow>
-            <TableCell>Active</TableCell>
-            <TableCell>Recovered</TableCell>
-            <TableCell>Deaths</TableCell>
-            <TableCell>Total</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-            <TableRow >
-              <TableCell component="th" scope="row">
-                {props.active}
-              </TableCell>
-              <TableCell >{props.recovered}</TableCell>
-              <TableCell >{props.deaths}</TableCell>
-              <TableCell >{props.total}</TableCell>
-              
-            </TableRow>
-    
-        </TableBody>
-      </Table>
-    </TableContainer>
-
+          <Table aria-label="simple table" >
+            <TableHead>
+              <TableRow>
+                <TableCell>Active</TableCell>
+                <TableCell>Recovered</TableCell>
+                <TableCell>Deaths</TableCell>
+                <TableCell>Total</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+                <TableRow >
+                  <TableCell>{props.active}</TableCell>
+                  <TableCell >{props.recovered}</TableCell>
+                  <TableCell >{props.deaths}</TableCell>
+                  <TableCell >{props.total}</TableCell>
+                </TableRow>
+            </TableBody>
+          </Table>
+        </TableContainer>
       </Container>
-    )
+    );
   }
   return (
     <Container maxWidth = "lg" style={{textAlign:"center"}} >
