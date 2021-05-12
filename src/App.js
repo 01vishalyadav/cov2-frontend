@@ -17,7 +17,7 @@ class App extends Component
   {
     // let url = "https://node-py-1.herokuapp.com/api/districts/"+dist
     // now use aws hosted api
-    let url = "http://ec2-65-0-101-99.ap-south-1.compute.amazonaws.com:3333/api/districts/"+dist
+    let url = "http://ec2-65-2-140-32.ap-south-1.compute.amazonaws.com:3333/api/districts/"+dist
     
     if(process.env.NODE_ENV==='development')
       url="http://localhost:3333/api/districts/"+dist;
